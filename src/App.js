@@ -1,18 +1,42 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+import Customer from './components/Customer';
 import './App.css';
 
-class App extends Component {
+const customers = [{
+    'id' : 1,
+    'image' : 'https://placeimg.com/64/64/1',
+    'name' : '홍길동1',
+    'birthday' : '961222',
+    'gender' : '남자',
+    'job' : '대학생'
+  },
+  {
+    'id' : 1,
+    'image' : 'https://placeimg.com/64/64/2',
+    'name' : '홍길동2',
+    'birthday' : '891111',
+    'gender' : '남자',
+    'job' : '대학생'
+  },
+  {
+    'id' : 1,
+    'image' : 'https://placeimg.com/64/64/3',
+    'name' : '홍길동3',
+    'birthday' : '961001',
+    'gender' : '남자',
+    'job' : '대학생'
+  }
+]
+
+class App extends Component{
   render(){
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Let's develop management system!</h2>
-        </header>
+    return(
+      <div>
+        {customers.map(c => {
+          return <Customer key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job} />
+        })}
       </div>
-    );
+    )
   }
 }
-
 export default App;
